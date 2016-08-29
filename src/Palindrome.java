@@ -20,7 +20,7 @@ public class Palindrome {
         // then pop and print them in a loop
         // now you've printed forwards and backwards
 
-        // hint: you can look over the chars of a String with:
+        // hint: you can loop over the chars of a String with a foreach loop on an array:
         // for(char c : s.toCharArray())
     }
 
