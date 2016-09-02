@@ -22,7 +22,7 @@ public class Stack implements ICharStack {
     @Override
     public void push(char c) {
         // basically reuse your code from ExtendingStack
-    	list.add(0, c);
+    	list.add(c);
     }
 
     @Override
@@ -53,7 +53,7 @@ public class Stack implements ICharStack {
         // check if its an instance of a Stack
     	if(o instanceof Stack){
     		Stack s = (Stack) o;
-    		return o.equals(this);
+    		return list.equals(s.list);
     	}
     	return false;
         //   if it is, cast it to a Stack and store
@@ -67,6 +67,10 @@ public class Stack implements ICharStack {
     }
 
     public void swapTopTwo() {
+    	char a = pop();
+    	char b = pop();
+    	push(a);
+    	push(b);
         // if it was [a, b, c, d] before
         // it should be [a, b, d, c] after
     }
