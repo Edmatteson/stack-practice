@@ -6,20 +6,20 @@ public class ExtendingStack extends ArrayList<Character> implements ICharStack {
 
     @Override
     public void push(char c) {
-        // add to the end (find the arraylist method that adds to the end)
+    	add(c);
     }
 
     @Override
     public char peek() throws NoSuchElementException {
         if(isEmpty())
             throw new NoSuchElementException();
-        // return the last char
+        return get(size()-1);
     }
 
     @Override
     public char pop() throws NoSuchElementException {
         char ret = peek();
-        // remove the last char (find the arraylist method to remove at a certain position)
+        remove(size()-1);
         return ret;
     }
 }

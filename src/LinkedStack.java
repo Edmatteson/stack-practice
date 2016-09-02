@@ -15,29 +15,34 @@ public class LinkedStack implements ICharStack {
     // question: can code outside the LinkedStack class use the Node class?
 
     // private member to hold first node reference
+    private Node top;
+    
     // constructor of zero args
+    public LinkedStack(){
+    	top = null;
+    }
 
     @Override
     public boolean isEmpty() {
-        // code here
+    	return this.top == null;
     }
 
     @Override
     public void push(char c) {
-        // code here
+    	top = new Node(c, top);
     }
 
     @Override
     public char peek() throws NoSuchElementException {
         if(isEmpty())
             throw new NoSuchElementException();
-        // else return the top char
+        return top.c;
     }
 
     @Override
     public char pop() throws NoSuchElementException {
         char ret = peek();
-        // remove top node (pop it)
+        top = top.next;
         return ret;
     }
     // question: why doesn't pop need to do any error checking?

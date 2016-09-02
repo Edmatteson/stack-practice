@@ -16,21 +16,29 @@ public class Stack implements ICharStack {
     @Override
     public boolean isEmpty() {
         // basically reuse your code from ExtendingStack
+    	return list.isEmpty();
     }
 
     @Override
     public void push(char c) {
         // basically reuse your code from ExtendingStack
+    	list.add(0, c);
     }
 
     @Override
     public char peek() throws NoSuchElementException {
         // basically reuse your code from ExtendingStack
+        if(isEmpty())
+            throw new NoSuchElementException();
+        return list.get(0);
     }
 
     @Override
     public char pop() throws NoSuchElementException {
         // basically reuse your code from ExtendingStack
+    	char ret = peek();
+        list.remove(0);
+        return ret;
     }
 
 
@@ -43,6 +51,11 @@ public class Stack implements ICharStack {
     @Override
     public boolean equals(Object o) {
         // check if its an instance of a Stack
+    	if(o instanceof Stack){
+    		Stack s = (Stack) o;
+    		return o.equals(this);
+    	}
+    	return false;
         //   if it is, cast it to a Stack and store
         //   it in a local variable
         //   then compare the lists of this and the other
